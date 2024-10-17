@@ -1,0 +1,55 @@
+.loader {
+  --spin-size: 50px;
+  --border-width: 2px;
+  --bright-color: #fff;
+  --dark-color: #000;
+
+  --true-r: calc(var(--spin-size) - var(--border-width));
+  --small-r: calc(var(--true-r) / 4);
+  --small-border-width: calc(calc(var(--true-r) - var(--small-r)) / 2);
+
+  @keyframes yin-yang {
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+
+  display: block;
+  width: calc(var(--true-r) * 2);
+  box-sizing: content-box;
+  height: calc(var(--spin-size) - var(--border-width));
+  background: var(--bright-color);
+  border-color: var(--dark-color);
+  border-style: solid;
+  border-width: var(--border-width) var(--border-width) var(--spin-size)
+    var(--border-width);
+  border-radius: 100%;
+  position: relative;
+
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    border-radius: 100%;
+    width: var(--small-r);
+    height: var(--small-r);
+    box-sizing: content-box;
+  }
+
+  &::before {
+    left: 0;
+    background: var(--bright-color);
+    border: var(--small-border-width) solid var(--dark-color);
+  }
+
+  &::after {
+    left: 50%;
+    background: var(--dark-color);
+    border: var(--small-border-width) solid var(--bright-color);
+  }
+
+  &.spin {
+    animation: 2.5s yin-yang linear infinite;
+  }
+}

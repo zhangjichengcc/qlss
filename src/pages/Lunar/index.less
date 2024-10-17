@@ -1,0 +1,51 @@
+.view {
+  padding: 15px;
+
+  @keyframes offset {
+    0% {
+      stroke-dashoffset: 110;
+    }
+    100% {
+      stroke-dashoffset: 0;
+    }
+  }
+
+  .title {
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+
+    .help {
+      stroke-dasharray: 110;
+      stroke-dashoffset: 110;
+      stroke-linecap: round;
+      stroke-width: 2;
+      animation: offset 2s linear forwards;
+    }
+  }
+
+  .container {
+    border: #ddd solid 1px;
+    padding: 10px;
+  }
+
+  .controller {
+    display: flex;
+    gap: 15px;
+    margin-top: 20px;
+  }
+}
+
+.description {
+  padding: 10px;
+  background: #eee;
+  margin-bottom: 20px;
+  > p {
+    font-size: 13px;
+    text-indent: 26px;
+    color: #666;
+  }
+}
